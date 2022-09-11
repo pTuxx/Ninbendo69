@@ -1,7 +1,7 @@
 local folder = "nin69"
 local name = "Ninbendo 69"
 local screen = peripheral.find("monitor")
-screen.setBackgroundColor(colors.blue)
+screen.setBackgroundColor(colors.black)
 screen.setTextColor(colors.white)
 screen.clear()
 screen.setTextScale(0.5)
