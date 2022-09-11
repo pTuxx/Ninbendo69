@@ -1,25 +1,32 @@
-local function install(url, path)
-    local content = http.get(url).readAll()
+local nin = require "nin69" 
 
-    if content then
-        file = fs.open(path, "w")
-        file.write(content)
-        file.close()
-        print("Installed " .. url .. " to \"" .. path .. "\"")
-    else
-        print("Failed to download script!")
-    end
+if tonumber(nin.url("https://raw.githubusercontent.com/pTuxx/Ninbendo69/main/versions/nin69.txt")) > tonumber(nin.readfile("/versions/nin69.txt")) then
+    fs.delete("/nin69.lua")
+    fs.delete("/versions/nin69.txt")
+    nin.install("https://raw.githubusercontent.com/pTuxx/Ninbendo69/main/nin69.lua", "/nin69.lua")
+    nin.install("https://raw.githubusercontent.com/pTuxx/Ninbendo69/main/versions/nin69.txt", "/versions/nin69.txt")
 end
 
-local function url(url)
-    return http.get(url).readAll()
+if tonumber(nin.url("https://raw.githubusercontent.com/pTuxx/Ninbendo69/main/versions/nin69gui.txt")) > tonumber(nin.readfile("/versions/nin69gui.txt")) then
+    fs.delete("/nin69gui.lua")
+    fs.delete("/versions/nin69gui.txt")
+    nin.install("https://raw.githubusercontent.com/pTuxx/Ninbendo69/main/nin69gui.lua", "/nin69gui.lua")
+    nin.install("https://raw.githubusercontent.com/pTuxx/Ninbendo69/main/versions/nin69gui.txt", "/versions/nin69gui.txt")
 end
 
-local funciton readfile(path)
-    local file = fs.open(path, "r")
-    local contents = file.readAll()
-    file.close()
-    return contents
+if tonumber(nin.url("https://raw.githubusercontent.com/pTuxx/Ninbendo69/main/versions/startup.txt")) > tonumber(nin.readfile("/versions/startup.txt")) then
+    fs.delete("/startup.lua")
+    fs.delete("/versions/startup.txt")
+    nin.install("https://raw.githubusercontent.com/pTuxx/Ninbendo69/main/startup.lua", "/startup.lua")
+    nin.install("https://raw.githubusercontent.com/pTuxx/Ninbendo69/main/versions/startup.txt", "/versions/startup.txt")
 end
+
+local filePath = "basalt.lua"
+if not(fs.exists(filePath))then
+    shell.run("pastebin run ESs1mg7P packed true "..filePath:gsub(".lua", ""))
+end
+local basalt = require(filePath:gsub(".lua", ""))
+
+os.sleep(5)
 
 shell.run('nin69gui')

@@ -109,6 +109,30 @@ local function fixedUpdate(time, callback)
         
         os.sleep(time)
     end
-end 
+end
 
-return { onKey = onKey, fixedUpdate = fixedUpdate, folder = folder, name = name, regController = regController, split = split, writeconf = writeconf, readconf = readconf, printCentered = printCentered, draw = draw }
+local function install(url, path)
+    local content = http.get(url).readAll()
+
+    if content then
+        file = fs.open(path, "w")
+        file.write(content)
+        file.close()
+        print("Installed " .. url .. " to \"" .. path .. "\"")
+    else
+        print("Failed to download script!")
+    end
+end
+
+local function url(url)
+    return http.get(url).readAll()
+end
+
+local function readfile(path)
+    local file = fs.open(path, "r")
+    local contents = file.readAll()
+    file.close()
+    return contents
+end
+
+return { readFile = readFile, url = url, install = install, onKey = onKey, fixedUpdate = fixedUpdate, folder = folder, name = name, regController = regController, split = split, writeconf = writeconf, readconf = readconf, printCentered = printCentered, draw = draw }
