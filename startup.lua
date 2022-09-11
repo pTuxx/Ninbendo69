@@ -1,10 +1,12 @@
 local nin = require "nin69"
 local basalt = require "basalt"
 
+local conf = nin.readconf()
+
 local mainFrame = basalt.createFrame()
 
 local mainMon = basalt.createFrame("mainMon")
-    :setMonitor("right")
+    :setMonitor(conf.side)
     :setBackground(colors.black)
 
 local frame = mainFrame:addFrame()
