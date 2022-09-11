@@ -19,6 +19,7 @@ if tonumber(nin.url("https://raw.githubusercontent.com/pTuxx/Ninbendo69/main/ver
     fs.delete("/versions/startup.txt")
     nin.install("https://raw.githubusercontent.com/pTuxx/Ninbendo69/main/startup.lua", "/startup.lua")
     nin.install("https://raw.githubusercontent.com/pTuxx/Ninbendo69/main/versions/startup.txt", "/versions/startup.txt")
+    os.reboot()
 end
 
 local filePath = "basalt.lua"
@@ -26,7 +27,5 @@ if not(fs.exists(filePath))then
     shell.run("pastebin run ESs1mg7P packed true "..filePath:gsub(".lua", ""))
 end
 local basalt = require(filePath:gsub(".lua", ""))
-
-os.sleep(5)
 
 shell.run('nin69gui')

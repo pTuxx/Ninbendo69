@@ -80,7 +80,7 @@ local function main()
                             if tonumber(nin.url(game.versionUrl)) > tonumber(nin.readfile("/disk/version.txt")) then
                                 fs.delete("/disk/game.lua")
                                 fs.delete("/disk/version.txt")
-                                nin.install(game.fileUrl, "/disk.game.lua")
+                                nin.install(game.fileUrl, "/disk/game.lua")
                                 nin.install(game.versionUrl, "/disk/version.txt")
                             end
                             game.run(nin.readconf())
