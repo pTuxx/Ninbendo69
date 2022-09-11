@@ -135,4 +135,4 @@ local function readfile(path)
     return contents
 end
 
-return { readFile = readFile, url = url, install = install, onKey = onKey, fixedUpdate = fixedUpdate, folder = folder, name = name, regController = regController, split = split, writeconf = writeconf, readconf = readconf, printCentered = printCentered, draw = draw }
+return { readfile = readfile, url = url, install = install, onKey = onKey, fixedUpdate = fixedUpdate, folder = folder, name = name, regController = regController, split = split, writeconf = writeconf, readconf = readconf, printCentered = printCentered, draw = draw }
