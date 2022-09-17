@@ -77,12 +77,14 @@ local function main()
                     if event == "mouse_click" and button==1 then
                         if gameOpen == false then
                             gameOpen = true
-                            if tonumber(nin.url(game.versionUrl)) > tonumber(nin.readfile("/disk/version.txt")) then
-                                fs.delete("/disk/game.lua")
-                                fs.delete("/disk/version.txt")
-                                nin.install(game.fileUrl, "/disk/game.lua")
-                                nin.install(game.versionUrl, "/disk/version.txt")
-                            end
+                            --[[
+                                if tonumber(nin.url(game.versionUrl)) > tonumber(nin.readfile("/disk/version.txt")) then
+                                    fs.delete("/disk/game.lua")
+                                    fs.delete("/disk/version.txt")
+                                    nin.install(game.fileUrl, "/disk/game.lua")
+                                    nin.install(game.versionUrl, "/disk/version.txt")
+                                end
+                            ]]
                             game.run(nin.readconf())
                         elseif gameOpen == true then
                             gameOpen = false
